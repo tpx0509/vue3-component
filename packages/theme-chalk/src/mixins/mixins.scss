@@ -1,0 +1,37 @@
+@use 'config' as *;
+@forward 'config';
+
+
+// .wc-button { }
+@mixin b($block) {
+    $B : $namespace + '-' + $block;
+    .#{$B} {
+        @content
+    }
+};
+
+// $__header => .wc-button--primary
+@mixin e($element) {
+    @at-root {
+         #{&+$element-separator+$element} {
+            @content;
+         }
+    }
+}
+// &--primary => .wc-button--primary
+@mixin m($modifier) {
+     @at-root {
+        #{&+$element-separator+$modifier} {
+            @content;
+        }
+     }
+}
+// .wc-button.is-xxx
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+           @content
+        }
+    }
+};
+
