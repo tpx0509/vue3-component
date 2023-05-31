@@ -13,6 +13,7 @@
   "dependencies": {
     "@wencha/components": "workspace:*",
     "@wencha/theme-chalk": "workspace:*",
+    "@wencha/use": "workspace:1.0.0",
     "@wencha/utils": "workspace:*",
     "typescript": "^4.7.4",
     "vue": "^3.2.37",

@@ -10,6 +10,7 @@ importers:
       '@vue/eslint-config-typescript': ^11.0.0
       '@wencha/components': workspace:*
       '@wencha/theme-chalk': workspace:*
+      '@wencha/use': workspace:1.0.0
       '@wencha/utils': workspace:*
       eslint: ^8.20.0
       eslint-plugin-vue: ^9.2.0
@@ -21,6 +22,7 @@ importers:
     dependencies:
       '@wencha/components': link:packages/components
       '@wencha/theme-chalk': link:packages/theme-chalk
+      '@wencha/use': link:packages/use
       '@wencha/utils': link:packages/utils
       typescript: registry.npmmirror.com/typescript/4.7.4
       vue: registry.npmmirror.com/vue/3.2.37
