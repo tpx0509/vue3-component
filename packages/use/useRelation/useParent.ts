@@ -18,8 +18,8 @@ type ParentProvide<T> = T & {
 
 export function useParent<T>(key: InjectionKey<ParentProvide<T>>) {
   const parent = inject(key, null);
-
   if (parent) {
+    
     const instance = getCurrentInstance()!;
     const { link, unlink, internalChildren } = parent;
 

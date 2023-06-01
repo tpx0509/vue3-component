@@ -5,3 +5,8 @@ export function raf(fn:FrameRequestCallback):number {
 export function cancelRaf(id:number) {
     cancelAnimationFrame(id)
 } 
+// double raf for animation
+export function doubleRaf(fn: FrameRequestCallback): void {
+    raf(() => raf(fn));
+}
+  

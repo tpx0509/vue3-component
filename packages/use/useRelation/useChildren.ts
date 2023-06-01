@@ -43,8 +43,8 @@ export function sortChildren(
   publicChildren: ComponentPublicInstance[],
   internalChildren: ComponentInternalInstance[]
 ) {
+  console.log('parent',parent)
   const vnodes = flattenVNodes(parent.subTree.children);
-
   internalChildren.sort(
     (a, b) => vnodes.indexOf(a.vnode) - vnodes.indexOf(b.vnode)
   );
@@ -81,7 +81,6 @@ export function useChildren<
       publicChildren.splice(index, 1);
       internalChildren.splice(index, 1);
     };
-
     provide(
       key,
       Object.assign(

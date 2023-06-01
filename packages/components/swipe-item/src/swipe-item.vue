@@ -5,26 +5,30 @@
 </template>
 <script lang="ts" setup>
 import { createNameSpace } from '@wencha/utils/create';
-import { inject, onMounted,ref, watch } from 'vue'
+import { inject, onMounted,reactive,ref, watch } from 'vue'
+import { useParent } from "@wencha/use/useRelation";
+import { SWIPE_KEY } from '../../swipe/src/swipe';
 
-const [name,bem] = createNameSpace('swipe-item')
+let  [name,bem] = createNameSpace('swipe-item')
 
-const swipeData:any = inject('swipe')
 
-console.log('swipeData',swipeData)
+defineOptions({name : 'wc-swipe-item'});
 
-watch(() => swipeData.value,(value) => {
-   console.log('value',value)
+const state = reactive({
+   offset: 0,
+   inited: false,
+   mounted: false
 })
 
-defineOptions({
-  name: "wc-swipe-item",
-});
+const { parent,index } = useParent(SWIPE_KEY)
+
 
 let swipeItem = ref<HTMLElement|null>(null)
+
 onMounted(() => {
   swipeItem.value!.style.width = window.innerWidth+'px'
 })
+
 </script>
 <style lang="scss" scoped>
 @use '../../../theme-chalk/src/mixins/mixins.scss' as *;
